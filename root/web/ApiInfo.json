@@ -1,0 +1,13 @@
+{
+    "methods": [
+        {"value":1, "label":"GET"},
+        {"value":2, "label":"PUT"},
+        {"value":3, "label":"POST"},
+        {"value":4, "label":"DELETE"}
+    ],
+    "apis": [
+        {"value":1, "label":"/api/browse"},
+        {"value":2, "label":"/api/shutdown"},
+        {"value":3, "label":"/api/audio"}
+    ]
+}

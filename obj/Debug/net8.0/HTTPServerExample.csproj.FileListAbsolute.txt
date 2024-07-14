@@ -1,0 +1,14 @@
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.GeneratedMSBuildEditorConfig.editorconfig
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.AssemblyInfoInputs.cache
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.AssemblyInfo.cs
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.csproj.CoreCompileInputs.cache
+/home/ryan2018/projects/C#/server/bin/Debug/net8.0/HTTPServerExample
+/home/ryan2018/projects/C#/server/bin/Debug/net8.0/HTTPServerExample.deps.json
+/home/ryan2018/projects/C#/server/bin/Debug/net8.0/HTTPServerExample.runtimeconfig.json
+/home/ryan2018/projects/C#/server/bin/Debug/net8.0/HTTPServerExample.dll
+/home/ryan2018/projects/C#/server/bin/Debug/net8.0/HTTPServerExample.pdb
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.dll
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/refint/HTTPServerExample.dll
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.pdb
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/HTTPServerExample.genruntimeconfig.cache
+/home/ryan2018/projects/C#/server/obj/Debug/net8.0/ref/HTTPServerExample.dll

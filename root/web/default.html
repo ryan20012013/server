@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Console page</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <p>Page Views: {0}</p>
+    <div class="existingFunction">
+      <h3>Action</h3>
+      <label>Close Server: </label>
+      <button id="serverOnOff">Shutdown</button><br>
+      <label>Open Youtube music: </label>
+      <button id="browse">Open</button><br>
+      <label>Set volume: </label>
+      <select id="percentageList">
+        <option value="0">0%</option>
+        <option value="1">10%</option>
+        <option value="2">20%</option>
+        <option value="3">30%</option>
+        <option value="4">40%</option>
+        <option value="5">50%</option>
+        <option value="6">60%</option>
+        <option value="7">70%</option>
+        <option value="8">80%</option>
+        <option value="9">90%</option>
+        <option value="10">100%</option>
+      </select>
+      <label> Mute:</label>
+      <input type="checkbox" id="mute" name="mute" value="mute">
+      <button id="setVolume">Set Volume</button><br>
+    </div>
+    <div class="All API">
+      <select id="methodList"></select>
+      <select id="apiList"></select>
+    </div>
+    <label>DeveloperInfo: </label><br>
+    <label id="result">Result here<p>
+    <script src="index.js"></script>
+  </body> 
+</html>
