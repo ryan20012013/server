@@ -44,8 +44,8 @@ namespace HttpListenerExample {
                     StreamReader reader = new StreamReader(request.InputStream, request.ContentEncoding);
                     Dictionary<String, String> keyValuePairs = extractJson(System.Web.HttpUtility.UrlDecode(reader.ReadToEnd()));
                     
-                    int volume = Int32.Parse(keyValuePairs[KEY_VOLUME]);
-                    Boolean mute = Boolean.Parse(keyValuePairs[KEY_MUTE]);
+                    int volume = Int32.Parse(keyValuePairs.GetValueOrDefault(KEY_VOLUME, "0"));
+                    Boolean mute = Boolean.Parse(keyValuePairs.GetValueOrDefault(KEY_MUTE, "False"));
 
                     audioInfo.volume = volume > 100 ? 100 : (volume < 0 ? 0 : volume);
                     audioInfo.mute = mute;

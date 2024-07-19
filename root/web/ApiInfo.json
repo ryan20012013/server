@@ -8,6 +8,7 @@
     "apis": [
         {"value":1, "label":"/api/browse"},
         {"value":2, "label":"/api/shutdown"},
-        {"value":3, "label":"/api/audio"}
+        {"value":3, "label":"/api/audio"},
+        {"value":4, "label":"/api/message"}
     ]
 }

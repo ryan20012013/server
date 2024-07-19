@@ -1,4 +1,5 @@
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace HttpListenerExample {
     class BaseServlet {
@@ -22,13 +23,24 @@ namespace HttpListenerExample {
         }
 
         public Dictionary<String, String> extractJson(String jsonString) {
+            if (jsonString == "") {
+                return new Dictionary<string, string>();
+            }
             Dictionary<String, String> result = new Dictionary<String, String>();
             String[] jsonObjects = jsonString.Split("&");
             foreach (String jsonObject in jsonObjects){
+                Console.WriteLine("jsonObject: " + jsonObject);
                 String[] keyValue = jsonObject.Split("=", 2); 
-                result.Add(keyValue[0], keyValue[1]);
+                if (keyValue.Length == 1) {
+                    keyValue = jsonObject.Split(":", 2);
+                }
+                result.Add(removeSymbol(keyValue[0]), removeSymbol(keyValue[1]));
             }
             return result;
+        }
+
+        private string removeSymbol(String str) {
+            return Regex.Replace(str, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
         }
     }
 }
