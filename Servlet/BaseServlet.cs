@@ -33,8 +33,10 @@ namespace HttpListenerExample {
                 String[] keyValue = jsonObject.Split("=", 2); 
                 if (keyValue.Length == 1) {
                     keyValue = jsonObject.Split(":", 2);
+                    keyValue[0] = removeSymbol(keyValue[0]);
+                    keyValue[1] = removeSymbol(keyValue[1]);
                 }
-                result.Add(removeSymbol(keyValue[0]), removeSymbol(keyValue[1]));
+                result.Add(keyValue[0], keyValue[1]);
             }
             return result;
         }

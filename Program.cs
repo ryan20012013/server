@@ -1,12 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.IO;
-using System.Windows;
-using System.Diagnostics;
 using System.Text;
 using System.Net;
-using System.Net.Sockets;
-using System.Threading.Tasks;
+using CrawlerExample;
+
 
 namespace HttpListenerExample
 {
@@ -25,9 +21,11 @@ namespace HttpListenerExample
         public static bool runServer = true;
 
         private static string resourceDir = Environment.CurrentDirectory + "/root/web";
-        private static string dataDir = Environment.CurrentDirectory + "/root/data";
-        private static string weatherInfo = "/weather.json";
         public static string PAGEDATA = File.ReadAllText(resourceDir + "/default.html");
+
+        private static string dataDir = Environment.CurrentDirectory + "/root/data";
+        private static string bandaiInfo = "/bandaiInfo.json";
+
 
         private static readonly HttpClient client = new HttpClient();
 
@@ -101,17 +99,6 @@ namespace HttpListenerExample
             }
         }
 
-        public static async Task updateWeatherInfo() {
-            if (!File.Exists(dataDir + weatherInfo)) {
-                using HttpResponseMessage response = await client.GetAsync("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en");
-
-                String jsonResponse = await response.Content.ReadAsStringAsync();
-                // Console.WriteLine($"{jsonResponse}\n");
-
-                File.WriteAllText(dataDir + weatherInfo, jsonResponse);
-            }
-        }
-
         public static void Main(string[] args) {
             // Create a Http server and start listening for incoming connections
             url = httpProtocol + "*" + portNumber + '/';
@@ -119,13 +106,12 @@ namespace HttpListenerExample
             listener.Prefixes.Add(url);
             listener.Start();
             Console.WriteLine("Listening for connections on {0}", url);
-            
+            Crawler crawler = new Crawler("https://p-bandai.com/hk/search?sort=relevance&sellDate=0&sellDate=1&shop=05-001", dataDir + bandaiInfo);
+            crawler.startCrawlerTask(); 
             // Handle requests
             Task listenTask = HandleIncomingConnections();
-            Task updateInfoTask = updateWeatherInfo();
 
             listenTask.GetAwaiter().GetResult();
-            updateInfoTask.GetAwaiter().GetResult();
 
             // Close the listener
             listener.Close();
