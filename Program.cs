@@ -20,8 +20,8 @@ namespace HttpListenerExample
         public static int requestCount = 0;
         public static bool runServer = true;
 
-        private static string resourceDir = Environment.CurrentDirectory + "/root/web";
-        public static string PAGEDATA = File.ReadAllText(resourceDir + "/default.html");
+        private static string resourceDir = Environment.CurrentDirectory + "/root";
+        public static string PAGEDATA = File.ReadAllText(resourceDir + "/web/default.html");
 
         private static string dataDir = Environment.CurrentDirectory + "/root/data";
         private static string bandaiInfo = "/bandaiInfo.json";
@@ -79,7 +79,7 @@ namespace HttpListenerExample
                             Console.WriteLine("pageData from " + absolutePath);
                             pageData = File.ReadAllText(absolutePath);
                         } else {
-                            pageData = File.ReadAllText(resourceDir + "/404.html");
+                            pageData = File.ReadAllText(resourceDir + "/web/404.html");
                         }
                         data = Encoding.UTF8.GetBytes(pageData);
                         resp.ContentType = absolutePath.EndsWith(JSON_FILE) ? HTTP_JSON_FORMAT : HTTP_TEXT_FORMAT;

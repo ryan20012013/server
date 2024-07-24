@@ -33,7 +33,7 @@ $("#setVolume").click(function(){
 
 $(document).ready(function() {
     console.log("document ready");
-    $.getJSON(hostUrl + "/ApiInfo.json", function(data) {
+    $.getJSON(hostUrl + "/web/ApiInfo.json", function(data) {
         console.log("methods: " + data.methods + " apis: " + data.apis);
         $($.parseJSON(JSON.stringify(data.methods))).each(function() {
             var option = $("<option />");
@@ -48,4 +48,30 @@ $(document).ready(function() {
             $("#apiList").append(option);
         })
     })
+    $.getJSON(hostUrl + "/data/bandaiInfo.json", function(data) {
+        $("#Crawler").append("<br>");
+        for (let i = 0; i < data.length; i++) {
+            var anchor = $("<a />");
+            anchor.attr("href", data[i].Url);
+
+            var img = $("<img />");
+            img.attr("src", data[i].Image);
+            img.attr("class", "image-responsive");
+            img.width(200).height(200);
+
+            var descrip = $("<p />");
+            descrip.html(data[i].Name);
+            descrip.attr("style" , "font-size:10%;");
+
+            var price = $("<p />");
+            price.html(data[i].Price);
+
+            anchor.append(img);
+            anchor.append(descrip);
+            anchor.append(price);
+
+            $("#Crawler").append(anchor);
+            console.log("Url: " + data[i].Url + " Image: " + data[i].Image + " Name: " + data[i].Name + " Price: " + data[i].Price);
+        }
+    }).fail(function() {})
 });
